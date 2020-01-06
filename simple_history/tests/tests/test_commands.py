@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.core import management
 from django.test import TestCase
-from six.moves import cStringIO as StringIO
+from io import StringIO
 
 from simple_history import models as sh_models
 from simple_history.management.commands import populate_history

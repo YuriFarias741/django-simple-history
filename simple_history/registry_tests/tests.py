@@ -8,7 +8,7 @@ from django.apps import apps
 from django.contrib.auth import get_user_model
 from django.core import management
 from django.test import TestCase
-from six.moves import cStringIO as StringIO
+from io import StringIO
 
 from simple_history import exceptions, register
 from ..tests.models import (Choice, InheritTracking1, InheritTracking2,
