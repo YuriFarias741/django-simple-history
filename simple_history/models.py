@@ -13,7 +13,7 @@ from django.db import models, router
 from django.db.models import Q
 from django.db.models.fields.proxy import OrderWrt
 from django.urls import reverse
-from django.utils.encoding import python_2_unicode_compatible, smart_text
+from django.utils.encoding import smart_text
 from django.utils.text import format_lazy
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
@@ -160,8 +160,7 @@ class HistoricalRecords(object):
             attrs['Meta'].db_table = self.table_name
         name = 'Historical%s' % model._meta.object_name
         registered_models[model._meta.db_table] = model
-        return python_2_unicode_compatible(
-            type(str(name), self.bases, attrs))
+        return type(str(name), self.bases, attrs)
 
     def fields_included(self, model):
         fields = []
