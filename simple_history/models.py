@@ -13,7 +13,6 @@ from django.db import models, router
 from django.db.models import Q
 from django.db.models.fields.proxy import OrderWrt
 from django.urls import reverse
-from django.utils import six
 from django.utils.encoding import python_2_unicode_compatible, smart_text
 from django.utils.text import format_lazy
 from django.utils.timezone import now
@@ -66,7 +65,7 @@ class HistoricalRecords(object):
             excluded_fields = []
         self.excluded_fields = excluded_fields
         try:
-            if isinstance(bases, six.string_types):
+            if isinstance(bases, str):
                 raise TypeError
             self.bases = (HistoricalChanges,) + tuple(bases)
         except TypeError:
